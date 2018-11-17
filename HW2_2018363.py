@@ -101,7 +101,7 @@ def red(b1,b2):#takes input in form of string i.e in binary and returns reduced 
 		red=b1[:c]+'_'+b1[c+1:]	
 	else:
 		print('non reducible',b1,b2)
-		return None
+		quit()
 	return red
 
 def red4(a,b,c,d,numVar=4):#takes input in form of integers and returns reduced binary value in string with "-"
@@ -191,7 +191,7 @@ def step3(red_bin2,red_min2):#almost works same as above. it is not needed in ma
 	red_min3=remredun2(red_min3)
 	return red_bin3,red_min3,red_min_c
 
-def Reducedbin(Reduced_min,numVar):#it changes the reduced minterms to 
+def Reducedbin(Reduced_min,numVar):#it further reduces the minterms  
 	Reduced_bin=[]
 	for i in Reduced_min:
 			if str(i).isnumeric()==False:
@@ -361,7 +361,7 @@ def minFunc(sIn, numVar=4):
 	normal,dont_care=split_n_d(sIn)                            #splitting into normal minterms and don't cares
 	normal.sort()
 	dont_care.sort()
-	All_min=normal+dont_care								   #combination of all normal and don't cares
+	All_min=normal+dont_care				   #combination of all normal and don't cares
 	All_min.sort()
 
 	for i in All_min:# for checking of wrong minterms
@@ -398,35 +398,6 @@ def minFunc(sIn, numVar=4):
 	
 	#search for essential prime implicants
 	EPI=EPI_find(chart,normal)
-	
-	
-
-	#	EXTRA	
-	'''---------------------EVERY THING BELOW IS JUST FOR REPRESENTATION PURPOSE-------------'''
-	'''minterm='\n\t  '
-	for i in normal:
-		if i>9:
-			minterm+=str(i)+"   "	
-		else:
-			minterm+=str(i)+"    "
-	print(minterm)
-	print("~"*60)
-	for i in chart:
-		c=i[0]+'\t| '
-		for j in i[1:]:
-			c+=j+"  | "
-		print(c)
-		print("~"*60)
-	print("-"*60)
-	print("~"*60)
-	for i in EPI:
-		c=i[0]+'\t| '
-		for j in i[1:]:
-			c+=j+"  | "
-		print(c)
-		print("~"*60)'''
-
-	'''----------------------------------------------------------------------------------------------------'''
 	s=''
 	for i in EPI:
 		s+=i[0]+' + '
