@@ -1,3 +1,4 @@
+#This program is a simple Karnaugh map implementation. The whole program is implemented in Python3.7
 # CSE 101 - IP HW2
 # K-Map Minimization 
 # Name:Sandeep kumar singh
